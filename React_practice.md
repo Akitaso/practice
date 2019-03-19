@@ -65,7 +65,7 @@ return外にはjavascriptを記述することが出来る。
 class App extends React.Component {
     render() {
         //js定数をここで定義
-        const text ='Hello World";
+        const text ="Hello World";
         return(
         );
     }
