@@ -1,12 +1,16 @@
 # React Practice
 
+React(リアクト)とは、Facebook製の**JavaScriptライブラリ**です。Webアプリケーションのユーザーインターフェースを効率的に構築することを目的としており、主にView部分を実装します。
+
 ---
 
 ## JSX
 
-HTMLとES混同するような書き方ができる。
+HTMLとJavascriptが混同している書き方ができるのが特徴。
 
-,**render(内に複数要素が入っているとエラーが出るので注意。**
+MVCモデルのVIEW部～MODEL部分を担当する
+
+**render()内に複数要素が入っているとエラーが出るので注意。**
 
 ```js
 render(){
@@ -67,6 +71,7 @@ class App extends React.Component {
         //js定数をここで定義
         const text ="Hello World";
         return(
+            ...
         );
     }
 }
@@ -93,7 +98,7 @@ render(){
 
 ### JSとJSX内コメントを記入
 
-#### JSX - {/* */}で囲む
+#### JSX部分は {/* */}で囲む
 
 ```js
 render(){
@@ -105,7 +110,7 @@ render(){
 }
 ```
 
-#### JS - 先頭に //
+#### JS部分は 先頭に //
 
 ```js
 render(){
@@ -274,3 +279,15 @@ class App extends React.Component{
 }
 export default App;
 ```
+
+## babelのインストール
+
+`$ npm install --save-dev @babel/core @babel/cli @babel/preset-env`
+
+- @babel/core cf. @babel/core · Babel
+babelのコア
+- @babel/cli cf. @babel/cli · Babel
+babelコマンドが使えるようにする
+- @babel/preset-env cf. @babel/preset-env · Babel
+指定している環境に合わせていい感じにプラグインを使って変換してくれるやつ。
+
