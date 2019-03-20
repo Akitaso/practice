@@ -62,7 +62,7 @@ export default App;
 
 ### Javascriptの記述
 
-return外にはjavascriptを記述することが出来る。
+return外には通常のjavascriptを記述することが出来る。
 この空間に定数を定義する場合が多い。
 
 ```js
