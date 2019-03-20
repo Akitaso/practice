@@ -282,12 +282,65 @@ export default App;
 
 ## babelのインストール
 
-`$ npm install --save-dev @babel/core @babel/cli @babel/preset-env`
+JSXを通常のJSファイルに変換します
 
+```cmd
+ npm init -y
+ npm install --save-dev webpack
+ npm install --save-dev babel-loader @babel/core @babel/cli @babel/preset-env
+```
+
+>--save-devオプション プロジェクト毎にインストール
+>-g オプション  グローバルインストール
+
+- npm init -y
+設定ファイルの作成。-yは初期設定を無視
+`package.json`というファイルが作られます
+- webpack
+webpackの目的はモジュールバンドリング。複数に分けたjsファイルをひとつにまとめる際にも使われる
 - @babel/core cf. @babel/core · Babel
 babelのコア
 - @babel/cli cf. @babel/cli · Babel
 babelコマンドが使えるようにする
 - @babel/preset-env cf. @babel/preset-env · Babel
-指定している環境に合わせていい感じにプラグインを使って変換してくれるやつ。
+指定している環境に合わせていい感じにプラグインを使って変換
 
+### .babelrc設定ファイルを追加
+
+`$ touch .babelrc`
+
+ここにプリセットやオプションなどを追記。
+
+```json
+{
+  "presets": [
+    "@babel/preset-env", "@babel/preset-react"
+  ]
+}
+```
+
+## Webpackのインストール
+
+```cmd
+npm init -y
+npm install webpack webpack-cli --save-dev
+```
+
+`webpack.config.js`内にbabelを使用する旨を書き足し、entry、moduleの変換対象をjsxに変更します
+
+```js
+const path = require('path')
+module.exports = {
+  entry: './src/index.jsx',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+    }
+  },
+  module: {
+  rules: [
+    { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+  ]
+}
+...
+```
