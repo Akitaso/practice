@@ -49,11 +49,15 @@ render(){
 ```js
 import React from 'react';
 class App extends react.Component {
+    //
     //--ここからjs部分
     //Reactをインポート、Componentを継承するクラスを定義
+    //
     render(){
+        |//
         |//--ここがJSX部分。ブラウザに表示される
         |// <h1>Hello,React! </h1>
+        |//
     }
 }
 export default App;
@@ -63,7 +67,7 @@ export default App;
 ### Javascriptの記述
 
 return外には通常のjavascriptを記述することが出来る。
-この空間に定数を定義する場合が多い。
+この空間に**定数を定義**する場合が多い。
 
 ```js
 class App extends React.Component {
@@ -79,7 +83,7 @@ class App extends React.Component {
 
 > Javascriptで変数は let 関数、定数は const 関数
 >
-> 違いは後から値を変更できかできないか。
+> 違いは*後から値を変更できるか*できないか。
 
 ### JSXにJSを埋め込む
 
@@ -125,17 +129,19 @@ render(){
 ## イベントを書く
 
 ```js
-<button EVENT_NAME={() => { _SHOLI_ } }></button>
+<button EVENT_NAME={() => { SHOLI } }></button>
 ```
 
-アロー関数(=>)を使ってイベント名と処理を記述。
+### アロー関数(=>)を使ってイベント名と処理を記述。
 
 Javascriptの記述なので{}で囲むことを忘れずに
 
 > アロー関数:
 >
-> 関数の定義にFunctionやthisを書かずに短い記述で定義できる。
+> 関数の定義にFunctionやthisを書かずに短い定数のような感覚で関数を定義できる。
+> >  
 > 引数が1つの時に限り()が省略して書ける。また一行記述だとreturn、{}も必要無い。
+> const HelloWorld= () => "Hello World!!";
 
 ### onClickイベント
 
