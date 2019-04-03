@@ -187,6 +187,7 @@ class App extends React.Componemt{
     }
 }
 ```
+>propsとは？
 
 ### Stateの取得
 
