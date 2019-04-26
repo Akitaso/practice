@@ -132,10 +132,25 @@ new Vue({
 >Model値を表示したいだけなら**v-bind**。ユーザ入力を即座にModelに反映したいなら**v-model**を使いましょう。
 
 ## ユーザー入力制御（v-on）
+V-onディレクティブはイベント発火実行するjavascriptの記述ができます。
 
-ユーザーがボタンをクリックすると{{message}}文字が逆向きになる
+```html
+<button v-on:click="counter += 1">Count+</button>
+<p>you are {{counter}} Push buton</p>
+```
 
-属性値にメソッド名（メソッドイベントハンドラ）を書くやり方です。
+```js
+new Vue({
+  el:'#app',
+  data:{
+    counter:0
+  }
+})
+```
+>[Count+]
+you are 11 Push butoon
+
+ずっとv-onにjavascriptを追記していくのは非効率です。なので次は属性値にメソッド名（メソッドイベントハンドラ）を書くやり方です。
 
 ```html
 <p>{{ message }}</p>
@@ -145,16 +160,35 @@ new Vue({
 ```js
 new Vue({
   el:'#app3',
-  data:{      //messageに文字列を入れる
+  data:{
     message: 'Hello Vue.js!'
     },
-  methods:{   //ここからロジックを書く
-    reverseMessage: function () {
+  methods:{   //ここからjavascriptを書く
+    reverseMessage: function () {   //名前をつけて実行させる
     this.message = this.message.split('').reverse().join('')
         }
       }
 })
 ```
+
+これはユーザーがボタンをクリックすると{{message}}文字が逆向きになるボタンです。
+
+#### インラインメソッドハンドラ
+
+```html
+<button v-on:click="counter('hi')">Count+</button>
+<p>you are {{counter}} Push butoon</p>
+```
+
+```js
+  methods:{
+    counter:function(message){
+      alert(message)
+    }
+  }
+```
+
+インラインjavascriptで指定するやり方もある。
 
 ## コンポーネント(Component)
 
@@ -171,11 +205,12 @@ new Vue({
 ```js
 //まずコンポーネントを宣言してから
 Vue.component('todo-item',{
+    //コンポーネント名を宣言するとHTML上でカスタムタグとして使える
   template : '<li>This is a todo</li>'
 })
 //今まで通りVue呼び出し
 var app4 = new Vue({
-  el: '#app4'
+  el: '#app4  
 })
 ```
 
@@ -205,10 +240,10 @@ todo-itemタグの位置にリストが挿入される
 ```
 
 ```js
-Vue.component('todo-item',{
-  //コンポーネントをプロパティで受け取れるように名前を「todo」とする
-  props: ['todo'],
-  template : '<li>{{todo.text}}</li>'
+Vue.component('todo-item',{  //ここからjsをインスタンス化する処理らしい
+
+  props: ['todo'],   // prop:このコンポーネントが受け取る引数
+  template : '<li> {{todo.text}} </li>'   //template:実際に書き込むHTML
 })
 
 var app4 = new Vue({
