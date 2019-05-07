@@ -20,7 +20,7 @@ https://nginx.org/en/linux_packages.html から　RHEL/CentOSを参照
 
 `systemctl start nginx`
 
-ホスト名にアクセスして ** Welcome to nginx! ** と表示されることを確認
+ホスト名にアクセスして **Welcome to nginx!** と表示されることを確認
 
 * nginxの標準設定ファイル
 
