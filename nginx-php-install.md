@@ -53,8 +53,6 @@ user = nginx
 group = nginx
 ```
 
-
-
 ## nginxの設定を修正
 
 /etc/nginx/conf.d/default.conf
@@ -80,7 +78,7 @@ location ~ \.php$ {
 ```
 
 ## SELINUXの無効化
->権限が拒否されるのはだいたいこいつのせい
+権限が原因でアクセス拒否されるのはだいたいこいつのせい
 
 ファイル編集 /etc/selinux/config
 
@@ -94,4 +92,30 @@ SELINUX=disabled
 ```
 disableに書き換えサーバー再起動。
 
+
+## HTML内でPHPを動かす
+
+
+### php-fpm設定ファイルの書き換え
+
+/etc/php-fpm.d/www.conf 内
+
+コメントアウトを解除
+
+`security.limit_extensions = .php .html`
+>指定した拡張子以外は開けないようにする設定
+### nginx設定ファイルの書き換え
+
+/etc/nginx/conf.d/default.conf 内
+
+```
+ location ~ \.(php|html)$ {	#ここを書き換え
+        root           /home/vagrant/public_html;
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+```
+サーバーとphp-fpmを再起動後、反映されているか確認。
 
