@@ -48,9 +48,9 @@ UNIX user/groupの設定欄をapache->nginxに書き換えます。
 ; Note: The user is mandatory. If the group is not set, the default user's group
 ;       will be used.
 ; RPM: apache user chosen to provide access to the same directories as httpd
-user = nginx
+user = nginx	#ユーザー名をapacheから書き換え
 ; RPM: Keep a group allowed to write in log dir.
-group = nginx
+group = nginx	#グループ名をapacheから書き換え
 ```
 
 ## nginxの設定を修正
