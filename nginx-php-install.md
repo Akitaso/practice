@@ -37,7 +37,7 @@ https://nginx.org/en/linux_packages.html から　RHEL/CentOSを参照
 
 ## PHP-fpmのインストール
 
-apache-php-fpmの導入に詳しく書いてあるので割愛。
+[apachefpm](/apache-php-fpm.md)に詳しく書いてあるので割愛。
 
 UNIX user/groupの設定欄をapache->nginxに書き換えます。
 
