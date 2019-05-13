@@ -70,5 +70,6 @@ PermitRootLogin no
 DenyUsers ec2-user
 ```
 
-接続ポートの限定、ユーザーの拒否等の設定で更にセキュアにできる。
+設定ファイルを編集を終えたら再起動することを忘れずに。
+`$ systemctl restart sshd`
 
