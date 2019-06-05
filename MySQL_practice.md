@@ -305,6 +305,23 @@ sudo server mysql restart
 DROP USER 'hogeuser'@'localhost';
 ```
 
+## データベース操作コマンド
+
+最初にMySQL内に新しくデータベースを新規作成し、USEで使用します。
+
+### データベースの新しく追加
+
+`create databases test_db;`
+
+### データベース一覧の表示
+
+`show databases;`
+
+### データベース選択
+
+`use test_db;`
+
+
 ## レコードの追加
 
 ### テーブルの作成
