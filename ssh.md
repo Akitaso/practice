@@ -1,6 +1,6 @@
 # さくらのサーバーにSSHで入るための備忘録
 
-```$ ssh [ten-system]@[ten-system].sakura.ne.jp```
+```$ ssh [ACCOUNT名]@[ACCOUNT名].sakura.ne.jp```
 
 でも一応はサーバーに入れますが、毎回とパスワードを聞かれるのでこれを省く公開鍵認証で接続します。
 安全のためパスワード認証を禁止しているサーバーもあります
@@ -42,7 +42,7 @@ Your public key has been saved in /~/.ssh/id_rsa.pub
 ## 作った鍵をサーバーに設置する作業
 
 ```
-$scp ~/.ssh/id_rsa.pub [ten-system]@[ten-system].sakura.ne.jp:/home/[ten-system]/.ssh/authorized_keys
+$scp ~/.ssh/id_rsa.pub [ACCOUNT名]@[ACCOUNT名].sakura.ne.jp:/home/[ACCOUNT名]/.ssh/authorized_keys
 ```
 >SCP：ローカルのファイルをリモートディレクトリにコピーする
 
@@ -55,7 +55,7 @@ $chmod 600 .ssh/authorized_keys
 
 ## 接続
 ```
-$ ssh [ten-system]@[ten-system].sakura.ne.jp
+$ ssh [ACCOUNT名]@[ACCOUNT名].sakura.ne.jp
 ```
 パスフレーズを設定した場合ここで聞かれるのでこの時入力。
 
