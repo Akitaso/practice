@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hinding1</h1>
+    <h2>hinding2</h2>
+    <fieldset>
+        <label for="switch">
+            文字サイズ
+            <input type="checkbox" onclick="Oversize()" id="switch" name="switch" role="switch">
+            大
+        </label>
+    </fieldset>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+    <p>Ipsam iure maiores tenetur architecto mollitia illum obcaecati quo, </p>
+    <p>minus dolor iusto. Voluptatibus, eveniet perferendis? Sapiente id voluptatum odio ratione optio possimus?</p>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        const checkbox = document.getElementById("switch");
+        console.log(checkbox)
+
+        function Oversize() {
+            var aa = document.getElementsByTagName('p');
+            for (let i = 0; i < aa.length; i++) {
+                aa[i].style.fontSize = 'larger';
+            }
+        }
+    </script>
+</body>
+
+</html>
